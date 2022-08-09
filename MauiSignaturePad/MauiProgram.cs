@@ -1,9 +1,4 @@
 ﻿using Microsoft.Maui.Controls.Compatibility.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MauiSignaturePad
 {
@@ -15,7 +10,12 @@ namespace MauiSignaturePad
             builder
                 .UseMauiCompatibility()
                 .ConfigureMauiHandlers((handlers) => {
-                    handlers.AddCompatibilityRenderer(typeof(SignaturePadView), typeof(SignaturePadRenderer));
+#if ANDROID
+                    handlers.AddHandler(typeof(SignaturePadView), typeof(Platforms.Android.SignaturePadHandler));
+#elif IOS
+                    handlers.AddHandler(typeof(SignaturePadView), typeof(Platforms.iOS.SignaturePadHandler));
+#elif WINDOWS
+#endif
                 });
 
             return builder.Build();

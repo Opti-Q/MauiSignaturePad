@@ -1,6 +1,6 @@
 namespace MauiSignaturePad;
 
-public class SignaturePadView : View
+public class SignaturePadView : View, ISignaturePadView
 {
     public static readonly BindableProperty CaptionTextProperty = BindableProperty.Create(nameof(CaptionText), typeof(string), typeof(SignaturePadView), null);
     public static readonly BindableProperty CaptionTextColorProperty = BindableProperty.Create(nameof(CaptionTextColor), typeof(Color), typeof(SignaturePadView), Colors.Black);
@@ -16,7 +16,7 @@ public class SignaturePadView : View
     public bool IsBlank
     {
         get { return (bool)GetValue(IsBlankProperty); }
-        internal set { SetValue(IsBlankProperty, value); }
+        set { SetValue(IsBlankProperty, value); }
     }
 
     public string CaptionText
