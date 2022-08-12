@@ -8,6 +8,6 @@ namespace MauiSignaturePad.Platforms.Android
         {
         }
 
-        protected override SignaturePadView CreatePlatformView() => new SignaturePadView(Context);
+        protected override SignaturePadView CreatePlatformView() => new(Context);
     }
 }

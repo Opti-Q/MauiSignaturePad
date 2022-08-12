@@ -8,6 +8,6 @@ namespace MauiSignaturePad.Platforms.iOS
         {
         }
 
-        protected override SignaturePadView CreatePlatformView() => new SignaturePadView();
+        protected override SignaturePadView CreatePlatformView() => new();
     }
 }
